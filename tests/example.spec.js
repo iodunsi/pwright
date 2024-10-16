@@ -11,7 +11,7 @@ test('There should be a title stating “Student Guide to Docker”', async ({ p
 
 
 test('Check for mention of docker using key terms: check for words “containerization,” “docker image,” and “kernel”', async ({ page }) => {
-  await page.goto('https://jhr-4.github.io/IS373_Hexo/README/');
+  await page.goto('localhost:4000');
 
   //Look in the class of the article for key terms
   await expect(page.locator('.article-inner')).toHaveText(/Container/);
@@ -22,7 +22,7 @@ test('Check for mention of docker using key terms: check for words “containeri
 
 
 test('There should be clickable hyperlinks to all sub pages/articles', async ({ page }) => {
-  await page.goto('https://jhr-4.github.io/IS373_Hexo/README/');
+  await page.goto('localhost:4000');
 
   //Find page link, click it, check title to see if page works, and then go back
 
