@@ -42,8 +42,8 @@ test('There should be clickable hyperlinks to all sub pages/articles', async ({ 
   await page.locator('#sidebar').getByText(/Home/).click();
 
   //CI-CD
-  await page.locator('.article-inner').locator('#CI-CD-Explained-Setup').getByText('CI/CD Explained & Setup').click();
-  await expect(page.locator('.article-header')).toHaveText(/CI\/CD Explained & Setup/);
+  await page.locator('.article-inner').locator('#GitHub-Fork-Actions').getByText('GitHub Fork + Actions').click();
+  await expect(page.locator('.article-header')).toHaveText(/Github Collaboration with forks and CI\/CD/);
   await page.locator('#sidebar').getByText(/Home/).click();
   
 });
