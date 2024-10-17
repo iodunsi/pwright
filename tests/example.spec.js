@@ -7,7 +7,6 @@ test('There should be a title stating “Student Guide to Docker”', async ({ p
 // Expect a title "to contain" a substring.
   await expect(page).toHaveTitle(/Student Guide to Docker 📚/);
   
-  <<<<<<< pwright-Home
   // Checking title of landing page
   await expect(page).toHaveTitle(/Student Guide to Docker/);
   
@@ -50,6 +49,5 @@ test('There should be clickable hyperlinks to all sub pages/articles', async ({ 
   await expect(page.locator('.article-header')).toHaveText(/Github Collaboration with forks and CI\/CD/);
   await page.locator('#sidebar').getByText(/Home/).click();
   
-=======
 
 });
