@@ -153,6 +153,37 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
     });
   
   });
+  test.describe('Fork CI CD Page tests', () => {
+
+    test.beforeEach(async ({ page }) => {
+      await page.goto('localhost:4000/IS373_Hexo/Getting-Started-On-Github-Project/');
+    });
+  
+    test('There should be a title that includes “GitHub Collaboration"', async ({ page }) => {
+      await expect(page.locator('.article-header')).toHaveText(/Github Collaboration/);
+    });
+  
+    test('The content should include words like “pull” and “merge” to explain opening a pull request', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/pull/);
+      await expect(page.locator('.article-inner')).toHaveText(/merge/);
+    });
+  
+    test('Content should explain utilizing phrases/commands like “git fetch upstream” and “git pull --rebase”', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/git fetch upstream/);
+      await expect(page.locator('.article-inner')).toHaveText(/git pull --rebase/);
+    });
+  
+    test('There should be a section titled “Benefits” explaining CI/CD', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/Benefits/);
+    });
+  
+    test('There should be an “Initial Setup” section explaining how to create a CI/CD workflow', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/Initial Setup/);
+      await expect(page.locator('.article-inner')).toHaveText(/GitHub Actions/);
+      await expect(page.locator('.article-inner')).toHaveText(/workflow/);
+    });
+  
+  });
   
 });
 });
