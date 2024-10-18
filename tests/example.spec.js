@@ -115,5 +115,44 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
     await expect(articleContent).toHaveText(/deploy multiple apps/i);
     await expect(articleContent).toHaveText(/containers virtualize the OS/i);
   });
+  test.describe('Docker vs. Kubernetes Page tests', () => {
+
+    test.beforeEach(async ({ page }) => {
+      await page.goto('localhost:4000/IS373_Hexo/DockerVsKubernetes/');
+    });
+  
+    test('There should be a section titled "Docker vs Kubernetes"', async ({ page }) => {
+      await expect(page.locator('.article-header')).toHaveText(/Docker vs Kubernetes/);
+    });
+  
+    test('Content should include key terms: "container" for Docker and "orchestration" for Kubernetes', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/container/i);
+      await expect(page.locator('.article-inner')).toHaveText(/orchestration/i);
+    });
+  
+    test('Content should include key terms: "scaling", "deployment", "integration", "lightweight", and "resource management"', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/scaling/i);
+      await expect(page.locator('.article-inner')).toHaveText(/deployment/i);
+      await expect(page.locator('.article-inner')).toHaveText(/integration/i);
+      await expect(page.locator('.article-inner')).toHaveText(/lightweight/i);
+      await expect(page.locator('.article-inner')).toHaveText(/resource management/i);
+    });
+  
+    test('There should be sections titled "Advantages of Docker" and "Advantages of Kubernetes"', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/Advantages of Docker/);
+      await expect(page.locator('.article-inner')).toHaveText(/Advantages of Kubernetes/);
+    });
+  
+    test('Docker should be described as better for "small-scale projects" and Kubernetes for "large-scale demands"', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/small-scale projects/i);
+      await expect(page.locator('.article-inner')).toHaveText(/large-scale demands/i);
+    });
+  
+    test('Docker should be described as a "more lightweight option" for developers', async ({ page }) => {
+      await expect(page.locator('.article-inner')).toHaveText(/more lightweight option/i);
+    });
+  
+  });
+  
 });
 });
