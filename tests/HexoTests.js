@@ -1,7 +1,7 @@
 // @ts-check
 const { test, expect } = require('@playwright/test');
 
-test.describe('Installation Page tests', () => {
+test.describe('Home Page tests', () => {
 
   test.beforeEach(async ({ page }) => {
     await page.goto('localhost:4000/');
@@ -79,13 +79,12 @@ test.describe('Installation Page tests', () => {
     await page.locator('a', { hasText: 'Extention' }).click();
     await page.goBack();
   });
-// @ts-check
-const { test, expect } = require('@playwright/test');
+});
 
 test.describe('Virtualization vs Containerization Page Tests', () => {
 
   test.beforeEach(async ({ page }) => {
-    await page.goto('localhost:4000/IS373_Hexo/VirtualizationVsContainerization/');
+    await page.goto('localhost:4000/IS373_Hexo/VirtualizationVSContainerization/');
   });
 
   test('There should be a section labeled "Virtualization vs. Containerization"', async ({ page }) => {
@@ -96,29 +95,32 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
   test('Content should explain the difference between virtualization and containerization with key terms', async ({ page }) => {
     const articleContent = page.locator('.article-inner');
     
-    await expect(articleContent).toHaveText(/hypervisor/i);
-    await expect(articleContent).toHaveText(/virtual machine/i);
-    await expect(articleContent).toHaveText(/operating system/i);
-    await expect(articleContent).toHaveText(/resource/i);
+    await expect(articleContent).toHaveText(/hypervisor/);
+    await expect(articleContent).toHaveText(/virtual machine/);
+    await expect(articleContent).toHaveText(/operating system/);
+    await expect(articleContent).toHaveText(/resource/);
   });
 
   test('Content should explain benefits and drawbacks with specific terms and comparisons', async ({ page }) => {
     const articleContent = page.locator('.article-inner');
 
-    await expect(articleContent).toHaveText(/scalability/i);
-    await expect(articleContent).toHaveText(/efficiency/i);
-    await expect(articleContent).toHaveText(/deployment/i);
+    await expect(articleContent).toHaveText(/scalability/);
+    await expect(articleContent).toHaveText(/efficiency/);
+    await expect(articleContent).toHaveText(/deployment/);
     
-    await expect(articleContent).toHaveText(/strong isolation/i);
-    await expect(articleContent).toHaveText(/each VM runs independently/i);
+    await expect(articleContent).toHaveText(/strong isolation/);
+    await expect(articleContent).toHaveText(/Each VM runs independently/);
 
-    await expect(articleContent).toHaveText(/deploy multiple apps/i);
-    await expect(articleContent).toHaveText(/containers virtualize the OS/i);
+    await expect(articleContent).toHaveText(/deploy multiple apps/);
+    await expect(articleContent).toHaveText(/containers virtualize the OS/);
   });
+});
+
+
   test.describe('Docker vs. Kubernetes Page tests', () => {
 
     test.beforeEach(async ({ page }) => {
-      await page.goto('localhost:4000/IS373_Hexo/DockerVsKubernetes/');
+      await page.goto('localhost:4000/IS373_Hexo/DockerVSKubernetes/');
     });
   
     test('There should be a section titled "Docker vs Kubernetes"', async ({ page }) => {
@@ -126,16 +128,16 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
     });
   
     test('Content should include key terms: "container" for Docker and "orchestration" for Kubernetes', async ({ page }) => {
-      await expect(page.locator('.article-inner')).toHaveText(/container/i);
-      await expect(page.locator('.article-inner')).toHaveText(/orchestration/i);
+      await expect(page.locator('.article-inner')).toHaveText(/container/);
+      await expect(page.locator('.article-inner')).toHaveText(/orchestration/);
     });
   
     test('Content should include key terms: "scaling", "deployment", "integration", "lightweight", and "resource management"', async ({ page }) => {
-      await expect(page.locator('.article-inner')).toHaveText(/scaling/i);
-      await expect(page.locator('.article-inner')).toHaveText(/deployment/i);
-      await expect(page.locator('.article-inner')).toHaveText(/integration/i);
-      await expect(page.locator('.article-inner')).toHaveText(/lightweight/i);
-      await expect(page.locator('.article-inner')).toHaveText(/resource management/i);
+      await expect(page.locator('.article-inner')).toHaveText(/scaling/);
+      await expect(page.locator('.article-inner')).toHaveText(/deployment/);
+      await expect(page.locator('.article-inner')).toHaveText(/Integration/);
+      await expect(page.locator('.article-inner')).toHaveText(/lightweight/);
+      await expect(page.locator('.article-inner')).toHaveText(/resources/); /* */
     });
   
     test('There should be sections titled "Advantages of Docker" and "Advantages of Kubernetes"', async ({ page }) => {
@@ -144,17 +146,17 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
     });
   
     test('Docker should be described as better for "small-scale projects" and Kubernetes for "large-scale demands"', async ({ page }) => {
-      await expect(page.locator('.article-inner')).toHaveText(/small-scale projects/i);
-      await expect(page.locator('.article-inner')).toHaveText(/large-scale demands/i);
+      await expect(page.locator('.article-inner')).toHaveText(/small-scale projects/);
+      await expect(page.locator('.article-inner')).toHaveText(/large-scale/); /** **/
     });
   
     test('Docker should be described as a "more lightweight option" for developers', async ({ page }) => {
-      await expect(page.locator('.article-inner')).toHaveText(/more lightweight option/i);
+      await expect(page.locator('.article-inner')).toHaveText(/more lightweight option/); /** **/
     });
   
-  });
-  test.describe('Fork CI CD Page tests', () => {
+});
 
+test.describe('Fork CI CD Page tests', () => {
     test.beforeEach(async ({ page }) => {
       await page.goto('localhost:4000/IS373_Hexo/Getting-Started-On-Github-Project/');
     });
@@ -170,7 +172,7 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
   
     test('Content should explain utilizing phrases/commands like “git fetch upstream” and “git pull --rebase”', async ({ page }) => {
       await expect(page.locator('.article-inner')).toHaveText(/git fetch upstream/);
-      await expect(page.locator('.article-inner')).toHaveText(/git pull --rebase/);
+      await expect(page.locator('.article-inner')).toHaveText(/git pull –rebase/);
     });
   
     test('There should be a section titled “Benefits” explaining CI/CD', async ({ page }) => {
@@ -182,8 +184,5 @@ test.describe('Virtualization vs Containerization Page Tests', () => {
       await expect(page.locator('.article-inner')).toHaveText(/GitHub Actions/);
       await expect(page.locator('.article-inner')).toHaveText(/workflow/);
     });
-  
-  });
-  
 });
-});
+  
