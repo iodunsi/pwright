@@ -79,5 +79,41 @@ test.describe('Installation Page tests', () => {
     await page.locator('a', { hasText: 'Extention' }).click();
     await page.goBack();
   });
+// @ts-check
+const { test, expect } = require('@playwright/test');
 
+test.describe('Virtualization vs Containerization Page Tests', () => {
+
+  test.beforeEach(async ({ page }) => {
+    await page.goto('localhost:4000/IS373_Hexo/VirtualizationVsContainerization/');
+  });
+
+  test('There should be a section labeled "Virtualization vs. Containerization"', async ({ page }) => {
+    // Ensure the section header exists and contains the correct text
+    await expect(page.locator('.article-header')).toHaveText(/Virtualization vs. Containerization/);
+  });
+
+  test('Content should explain the difference between virtualization and containerization with key terms', async ({ page }) => {
+    const articleContent = page.locator('.article-inner');
+    
+    await expect(articleContent).toHaveText(/hypervisor/i);
+    await expect(articleContent).toHaveText(/virtual machine/i);
+    await expect(articleContent).toHaveText(/operating system/i);
+    await expect(articleContent).toHaveText(/resource/i);
+  });
+
+  test('Content should explain benefits and drawbacks with specific terms and comparisons', async ({ page }) => {
+    const articleContent = page.locator('.article-inner');
+
+    await expect(articleContent).toHaveText(/scalability/i);
+    await expect(articleContent).toHaveText(/efficiency/i);
+    await expect(articleContent).toHaveText(/deployment/i);
+    
+    await expect(articleContent).toHaveText(/strong isolation/i);
+    await expect(articleContent).toHaveText(/each VM runs independently/i);
+
+    await expect(articleContent).toHaveText(/deploy multiple apps/i);
+    await expect(articleContent).toHaveText(/containers virtualize the OS/i);
+  });
+});
 });
